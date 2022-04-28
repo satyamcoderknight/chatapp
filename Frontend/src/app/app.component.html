@@ -1,0 +1,55 @@
+<div class='container' ng-cloak ng-app="chatApp">
+  <h1>Click Sonic Chatbox By Satyam</h1>
+  <div class='chatbox'>
+    <div class='chatbox__user-list'>
+      <h1>User list</h1>
+      <div class='chatbox__user--active'>
+        <p>Jack Thomson</p>
+      </div>
+      <div class='chatbox__user--busy'>
+        <p>Angelina Jolie</p>
+      </div>
+      <div class='chatbox__user--active'>
+        <p>George Clooney</p>
+      </div>
+      <div class='chatbox__user--active'>
+        <p>Seth Rogen</p>
+      </div>
+      <div class='chatbox__user--away'>
+        <p>John Lydon</p>
+      </div>
+    </div>
+    <div class="chat-div">
+      <div class="chatbox__messages" *ngFor="let mesg of messages" >
+        <div class="chatbox__messages__user-message">
+          <div class="chatbox__messages__user-message--ind-message">
+            <p class="name">{{mesg.name}}</p>
+            <br/>
+            <p class="message">{{mesg.message}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="chatbox__messages">
+      <div class="chatbox__messages__user-message">
+        <div class="chatbox__messages__user-message--ind-message">
+          <p class="name">Rahul</p>
+          <br/>
+          <p class="message">Hii</p>
+        </div>
+      </div>
+    </div>
+    <div class="chatbox__messages">
+      <div class="chatbox__messages__user-message">
+        <div class="chatbox__messages__user-message--ind-message">
+          <p class="name">Rahul</p>
+          <br/>
+          <p class="message">Hii</p>
+        </div>
+      </div>
+    </div> -->
+    <form  [formGroup]="chatForm" (ngSubmit)="onSend()"  >
+      <input type="text" placeholder="Enter your message" formControlName="message" >
+    </form>
+  </div>
